@@ -38,6 +38,8 @@ See the README folder in `2-promises-in-action`.
 
 ---
 
+### Exercise 6
+
 ## Server Endpoints
 
 - Create server endpoints for the these functions. We will be returning jokes to requests that our future frontend will make.
