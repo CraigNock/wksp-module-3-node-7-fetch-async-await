@@ -6,9 +6,9 @@
 const pauseFunction = () => {
     return new Promise(function(resolve, reject) {
         console.log('entering the promise(d) land');
-        resolve('resolve');
+        resolve('resolved');
         console.log('...in limbo...');
-        reject('reject');
+        reject('rejected');
         console.log('shuffling off...');
     });
 }

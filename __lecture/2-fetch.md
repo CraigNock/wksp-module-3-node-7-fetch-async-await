@@ -8,12 +8,15 @@
     - `POST` data somewhere
 
 The syntax is very similar to Promises.
+Fetch used only at the frontend.
 
 ---
 
 ### `GET`
 
 ```js
+        //remember always needs to send back a status 200(dandy), 300s(?), 400s(errors), 500s(server errors)
+
 fetch('<URL>')
     .then(res => {
         // if response is successful
@@ -31,17 +34,18 @@ fetch('<URL>')
 ### `POST
 
 ```js
-fetch('<URL>'{
+//if no object put, get is the asumed method.
+fetch('<URL>', {
         method: 'POST', // (optional) for `GET`
         mode: '',       // (optional) no-cors, *cors, same-origin
         cache: '',      // (optional) no-cache, reload, force-cache, only-if-cached
         credentials: '',// (optional) include, *same-origin, omit
         headers: {
-            'Content-Type': 'application/json' // (optional) but we'll use it.
+            'Content-Type': 'application/json' // (optional) but we will use it. (often/always)
             // (optional) other options / parameters that can be set here.
             },
         body: JSON.stringify({ // good practice to stringify, even if not always required.
-            // the data that you want to send to the server.
+            // the data that you want to send to the server. (req.body)
         })
     })
     .then(res => {

@@ -1,4 +1,4 @@
-# 3.6.1 - Async / Await
+# 3.7.1 - Async / Await
 
 ---
 
@@ -14,7 +14,7 @@
 const newPauseFunction = (sec) => {
     return new Promise(function(resolve) {
         console.log(`${sec}s pause`);
-        setTimeout(() => resolve('resolve'), sec * 1000);
+        setTimeout(() => resolve('resolved'), sec * 1000);
     });
 }
 
@@ -22,7 +22,34 @@ newPauseFunction(1)
     .then(() => newPauseFunction(2))
     .then(() => newPauseFunction(3))
     .then(() => newPauseFunction(3))
-    .then(data => console.log(data));
+    .then(data => console.log(data)); //prints 'resolved'
+
+
+
+//rewrite
+// code will not move past await until resolved( like a .then) just clearer
+const doIt = async () => {
+    await newPauseFunction(1); 
+    await newPauseFunction(2);
+    await newPauseFunction(3);
+    await newPauseFunction(3);
+    console.log('no more "awaits" now!');
+}
+
+doIt();
+
+const varib = await (somefunction()) //will wait until resolved and assigned to variable before proceeding with rest of code
+
+const doIt = async () => {
+    let data = await newPauseFunction(1); 
+    data = await newPauseFunction(data);
+    data = await newPauseFunction(data);
+    await newPauseFunction(data);
+    console.log('no more "awaits" now!');
+}
+
+doIt();
+
 ```
 
 _let's convert it to async/await_
@@ -44,6 +71,22 @@ transformText(string)
         return str;
     })
     .catch((err) => console.log(err));
+
+
+const conversion = async (string) => {
+    try {
+        let data = await transformText(string);
+        data = await allCaps(data);
+        data = await trimFirst(data);
+        data = await trimLast(data);
+        data = await replaceWithX(data);
+        console.log(data);
+        return data;
+    } catch (err) {console.log(err)}
+}
+
+conversion();
+
 ```
 
 ---

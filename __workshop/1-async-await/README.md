@@ -13,7 +13,10 @@ Rewrite the code from yesterday's exercise to make use of `async`/`await`
 ### Exercise 2
 
 1. Write a function called `doublesLater` that returns a new Promise that doubles a num after 2 seconds.
-2. Here is a promise called `addPromise` that adds 3 numbers, one after another and then resolves to the sum of a number and the doubles of 3 other numbers (10, 20, 30). As you can see, it is quite the hellish situation. _it is also a convoluted and totally fabricated situation..._
+
+2. Here is a promise called `addPromise` that adds 3 numbers, one after another.
+    Then it resolves to the sum of: a number, plus the doubles of 3 other numbers (10, 20, 30). 
+    As you can see, it is quite the hellish situation. _it is also a convoluted and totally fabricated situation..._
 
 ```js
 function addPromise(num){
@@ -23,7 +26,7 @@ function addPromise(num){
                 doubleAfter2Seconds(20)
                     .then((b) => {
                         doubleAfter2Seconds(30).then((c) => {
-                            resolve(x + a + b + c);
+                            resolve(num + a + b + c);
                         })
                 })
         })
