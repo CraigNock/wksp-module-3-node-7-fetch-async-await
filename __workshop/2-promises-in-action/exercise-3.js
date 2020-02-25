@@ -17,10 +17,13 @@ const getDadJoke = async () => {
 
         let joke1 = JSON.parse(jokeobj);
         joke1 = joke1.joke;
-
+        
         return joke1;
 
     } catch (err) {console.log(err)}
 }
 
-getDadJoke().then(data => {console.log(data)});
+// getDadJoke().then(data => {console.log(data)});
+
+
+module.exports = {getDadJoke};
