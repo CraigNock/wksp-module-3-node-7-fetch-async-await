@@ -8,7 +8,7 @@
 2. Write a Promise that will return a random joke.
 3. `console.log` the result to read the joke.
 
-Note: The `request-promise` module accepts a `uri` but can also accept an object with various parameters. _You will want to set the Headers to `"Accept": "application/json"`_ [See NPM](https://www.npmjs.com/package/request-promise#get-something-from-a-json-rest-api)
+Note: The `request-promise` module accepts a `url` but can also accept an object with various parameters. _You will want to set the Headers to `"Accept": "application/json"`_ [See NPM](https://www.npmjs.com/package/request-promise#get-something-from-a-json-rest-api)
 
 ### Exercise 4
 

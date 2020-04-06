@@ -15,7 +15,11 @@ const compareToTen = (num) => {
 }
 
 const myFunc = async (num) => {
-    // add code here
+    try {
+        let data = await compareToTen(num);
+        console.log('success');
+        return data;
+    } catch (err) {console.log(err)}
 }
 
 myFunc(15);
@@ -28,6 +32,8 @@ myFunc(8);
 // The first function, makeAllCaps(), will take in an array of words and capitalize them,
 // and then the second function, sortWords(), will sort the words in alphabetical order.
 // If the array contains anything but strings, it should throw an error.
+
+const rp = require('request-promise');
 
 const makeAllCaps = (array) => {
     return new Promise((resolve, reject) => {
@@ -52,7 +58,13 @@ const sortWords = (array) => {
 } 
 
 const textTransform = async (array) => {
-    // add code here
+    try {
+        let data = await makeAllCaps(array);
+        console.log(data);
+        data = await sortWords(data);
+        console.log(data)
+
+    } catch (err) {console.log(err)}
 }
 
 textTransform(['cucumber', 'tomatos', 'avocado']);
